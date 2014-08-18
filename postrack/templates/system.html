@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block title %}POS List{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+  Current POSES in {{ system }} for Fweddit:<br>
+  <hr>
+  {% for id, name in poses.iteritems() %}
+      <a href="{{ url_for('pos', posid=id) }}">{{ name[0] }}</a><br />
+  {% endfor %}
+{% endblock %}
